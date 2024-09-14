@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            background: black;
+            overflow: hidden;
+            color: white;
+        }
+
+        /* Falling Stars */
+        .stars, .cryptos, .money, .shooting-stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Star Animation */
+        .stars div {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            opacity: 0.8;
+            border-radius: 50%;
+            box-shadow: 0px 0px 8px white;
+            animation: shimmer 6s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* Shooting Stars Animation */
+        .shooting-stars div {
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background: rgb(250, 250, 250);
+            animation: shooting 5s linear infinite;
+        }
+
+        @keyframes shooting {
+            0% {
+                transform: translate(0, 0) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(600px, 600px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        /* Crypto Icons and Money Animation */
+        .cryptos img, .money img {
+            position: absolute;
+            width: 50px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-25px);
+            }
+        }
+
+        /* Form Styling */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-box {
+            background: rgba(6, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0px 0px 40px rgba(7, 218, 84, 0.5);
+            width: 400px;
+            text-align: center;
+            border: 2px solid rgba(9, 226, 114, 0.2);
+        }
+
+        .form-box h2 {
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: #418707;
+            text-shadow: 0px 0px 8px #418707;
+        }
+
+        .form-box input {
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            backdrop-filter: blur(5px);
+        }
+
+        .form-box input[type="submit"] {
+            background: #418707;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .form-box input[type="submit"]:hover {
+            background: #418707;
+        }
+
+        .form-box p {
+            margin-top: 10px;
+            color: #ccc;
+        }
+
+        .form-box p a {
+            color: #418707;
+            text-decoration: none;
+        }
+
+        .form-box p a:hover {
+            color: #aeea00;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Stars, Cryptocurrencies, Money, and Shooting Stars -->
+    <div class="stars"></div>
+    <div class="cryptos"></div>
+    <div class="money"></div>
+    <div class="shooting-stars"></div>
+
+    <!-- Sign-Up Form -->
+    <div class="container">
+        <div class="form-box">
+            <h2>Sign In</h2>
+            <form action="#">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="submit" value="Sign In">
+                <p>Don't Registered Yet? <a href="signup.html">Register Now</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Create stars
+        const starsContainer = document.querySelector('.stars');
+        for (let i = 0; i < 300; i++) {
+            const star = document.createElement('div');
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            star.style.left = ${x}px;
+            star.style.top = ${y}px;
+            starsContainer.appendChild(star);
+        }
+
+        // Create floating cryptocurrencies
+        const cryptosContainer = document.querySelector('.cryptos');
+        const cryptoIcons = [
+            'https://cdn-icons-png.flaticon.com/512/103/103464.png',  // Bitcoin
+            'https://cdn-icons-png.flaticon.com/512/733/733579.png',  // Ethereum
+            'https://cdn-icons-png.flaticon.com/512/825/825536.png',  // Litecoin
+            'https://cdn-icons-png.flaticon.com/512/825/825540.png',  // Ripple
+            'https://cdn-icons-png.flaticon.com/512/825/825559.png'   // Dogecoin
+        ];
+
+        for (let i = 0; i < 20; i++) {
+            const crypto = document.createElement('img');
+            crypto.src = cryptoIcons[Math.floor(Math.random() * cryptoIcons.length)];
+            crypto.style.left = ${Math.random() * window.innerWidth}px;
+            crypto.style.top = ${Math.random() * window.innerHeight}px;
+            cryptosContainer.appendChild(crypto);
+        }
+
+        // Create floating money symbols
+        const moneyContainer = document.querySelector('.money');
+        const moneyIcons = [
+            'https://cdn-icons-png.flaticon.com/512/189/189064.png',  // Dollar symbol
+            'https://cdn-icons-png.flaticon.com/512/535/535238.png',  // Euro symbol
+            'https://cdn-icons-png.flaticon.com/512/633/633611.png',  // Pound symbol
+            'https://cdn-icons-png.flaticon.com/512/3017/3017733.png' // Yen symbol
+        ];
+
+        for (let i = 0; i < 20; i++) {
+            const money = document.createElement('img');
+            money.src = moneyIcons[Math.floor(Math.random() * moneyIcons.length)];
+            money.style.left = ${Math.random() * window.innerWidth}px;
+            money.style.top = ${Math.random() * window.innerHeight}px;
+            moneyContainer.appendChild(money);
+        }
+
+        // Create shooting stars
+        const shootingStarsContainer = document.querySelector('.shooting-stars');
+        for (let i = 0; i < 10; i++) {
+            const shootingStar = document.createElement('div');
+            shootingStar.style.left = ${Math.random() * window.innerWidth}px;
+            shootingStar.style.top = ${Math.random() * window.innerHeight}px;
+            shootingStarsContainer.appendChild(shootingStar);
+        }
+    </script>
+
+</body>
+</html>

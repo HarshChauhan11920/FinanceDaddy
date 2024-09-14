@@ -1,0 +1,56 @@
+/* General Page Styles */
+body {
+    background-color: #000; /* Black background */
+    color: #00FF00; /* Green text */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header with Home Button */
+.header {
+    background-color: #000; /* Same as body background */
+    padding: 10px;
+    text-align: left;
+}
+
+.home-btn {
+    background-color: #00FF00; /* Green button */
+    color: #000; /* Black text on the button */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.home-btn:hover {
+    background-color: #008000; /* Darker green on hover */
+    cursor: pointer;
+}
+
+/* Content Area */
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: #00FF00;
+}
+
+p, ul {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
